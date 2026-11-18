@@ -315,7 +315,7 @@ def main():
     print("########################")
     time.sleep(2)
     
-    clr)()
+    clr()
     end_text("\033[1mThe 'hacker' left a message.\033[0m")
     
     clr()
