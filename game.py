@@ -3,21 +3,29 @@ import sys
 import random
 import time
 
+## RECOMMENDED TO FULLSCREEN THE TERMINAL FOR BEST IMMERSION
+
+# Clears the terminal screen
 def clr():
     os.system('cls' if os.name == "nt" else "clear")
 
+# Prints a blank line
 def blank():
     print("")
 
+# These ANSI escape sequences allow full customization of text in the terminal. 
+# \033[3m makes italic text while \033[0m resets after.
 def cont_input():
     input("\033[3mPress enter to continue.\033[0m")
 
+# Game data is a list for times and the player's username for the logs. (SPOILERS)
 def info(game_data):
     clr()
     game_data["sign_time"] = time.strftime("%H:%M.%S")
     game_data["username"] = input("\033[3mWhat is your username?\033[0m\n")
     time.sleep(1)
 
+# First problem of the story
 def print_hacked_prompt(error_msg=""):
     clr()
     print("\033[1;4;31m[WARNING]\033[0m")
@@ -34,6 +42,7 @@ def print_hacked_prompt(error_msg=""):
         "   3. Shut off everything.\n"
     )
 
+# Second problem of the story
 def print_admin_blocked(error_msg=""):
     clr()
     print("\033[1;4;31m[ERROR: ACCESS BLOCKED BY ADMIN]\033[0m")
@@ -53,6 +62,7 @@ def print_admin_blocked(error_msg=""):
         "   in_session = false\n"
     )
 
+# Third part of the story where you navigate an admin directory using W and S keys
 def directory_view(error_msg="", menu_item=0):
     clr()
     print("\033[1m[ADMIN DIRECTORY]\033[0m")
@@ -77,6 +87,7 @@ def directory_view(error_msg="", menu_item=0):
         "Select a menu. Use W or S to go up or down or leave it blank to select when you press enter.\n"
     )
 
+# Fourth part of the story, this is where game_data helps with the time variables saved to add into the log immersion.
 def log_view(game_data, error_msg="", log_item=0):
     username = game_data["username"]
     clr()
@@ -104,6 +115,8 @@ def log_view(game_data, error_msg="", log_item=0):
         "Navigate the logs. Use W or S to go up or down or leave it blank to select when you press enter.\n"
         )
 
+# Loading menu before the admin directory panel.
+
 def run_loading():
     for percentage in range(0, 105, 5):
         clr()
@@ -118,11 +131,15 @@ def run_loading():
         blank()
         time.sleep(random.uniform(0.125, 0.75))
 
+# This function was rushed aswell as the ending, hope to update this soon.
+
 def end_text(text):
     clr()
     print(text)
     time.sleep(2)
     cont_input()
+    
+# Main game run
 
 def main():
     game_data = {}
@@ -287,6 +304,8 @@ def main():
                                log_item=log_nav)
             blank()
 
+    # This end section was rushed.
+
     end_text("\033[3mYou accessed the log...\033[0m")
     end_text("\033[3mYou read through the log...\033[0m")
     end_text("\033[3mSuddenly, your terminal starts to glitch again.\033[0m")
@@ -294,14 +313,18 @@ def main():
     clr()
     print("#########################################")
     print("########################")
-
-    end_text("\033[3mThe 'hacker' left a message.\033[0m")
+    time.sleep(2)
+    
+    clr)()
+    end_text("\033[1mThe 'hacker' left a message.\033[0m")
+    
     clr()
     for i in range(50):
         print("I'll be here.")
         time.sleep(0.01)
 
     clr()
+    time.sleep(2)
     print("\033[1;3;4;31mTerminal Mystery\033[0m\n")
     time.sleep(2)
     print("\033[1mA Mini Terminal-Based Game By Aeden Villaluna\033[0m")
