@@ -5,15 +5,15 @@ import time
 
 ## RECOMMENDED TO FULLSCREEN THE TERMINAL FOR BEST IMMERSION
 
-# Clears the terminal screen
+# Clears the terminal screen using ANSI escape code
 def clr():
-    os.system('cls' if os.name == "nt" else "clear")
+    print("\033[H\033[2J", end="")
 
 # Prints a blank line
 def blank():
     print("")
 
-# These ANSI escape sequences allow full customization of text in the terminal. 
+# These ANSI escape codes allow full customization of text in the terminal. 
 # \033[3m makes italic text while \033[0m resets after.
 def cont_input():
     input("\033[3mPress enter to continue.\033[0m")
